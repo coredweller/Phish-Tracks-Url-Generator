@@ -6,29 +6,33 @@
     <script src="generator.js"></script>
   </head>
   <body style="width:250px">
-    <h1>Phish Tracks Url Generator</h1>
-	<table style="float:right;">
+    <h2>Phish Tracks Url Generator</h2>
+	<table>
 		<tr>
+			<td></td>
 			<td>Year*</td>
 			<td>Month*</td>
 			<td>Day*</td>
 		</tr>
 		<tr>
+			<td>Show Date:</td>
 			<td><input type="text" id="year" name="year" style="width: 50px" tabindex=1></td>
-			<td><input type="text" id="month" name="month" style="width: 30px" tabindex=2></td>
-			<td><input type="text" id="day" name="day" style="width: 30px" tabindex=3></td>
+			<td><input type="text" id="month" name="month" style="width: 30px; margin-left:5px;" tabindex=2></td>
+			<td><input type="text" id="day" name="day" style="width: 30px; margin-left:4px;" tabindex=3></td>
 		</tr>
 	</table>
 	<br>
-	<br>
-	<br>
-	Song Name:&nbsp;&nbsp;<input type="text" id="songName" name="songName" tabindex=4> <br> <br>
-    <input type="submit" id="submitButton" value="Generate" tabindex=5>
+	Song Name:&nbsp;<input type="text" id="songName" name="songName" style="width: 137px;" tabindex=4> <br> <br>
+	
+	<div style="text-align: center;">
+		<input type="submit" id="submitButton" value="Generate" style="position: absolute; left: 38%;" tabindex=5>
+	</div>
 	
 	<br>
 	<br>
-	<label id="generatedLink" name="generatedLink">
+	<label id="errorMessage" name="errorMessage"></label>
 	<br>
+	<a id="generatedLink" target="blank" name="generatedLink" href="#"></a>
 	<br>
   </body>
 </html>
