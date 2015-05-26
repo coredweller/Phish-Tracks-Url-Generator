@@ -5,11 +5,25 @@
 	<script src="jquery.min.js"></script>
     <script src="generator.js"></script>
   </head>
-  <body>
+  <body style="width:250px">
     <h1>Phish Tracks Url Generator</h1>
-	Show Date:*&nbsp;<input type="text" id="showDate" name="showDate">&nbsp;(yyyy-mm-dd) <br>
-	Song Name:&nbsp;&nbsp;<input type="text" id="songName" name="songName"> <br> <br>
-    <input type="submit" id="submitButton" value="Generate">
+	<table style="float:right;">
+		<tr>
+			<td>Year*</td>
+			<td>Month*</td>
+			<td>Day*</td>
+		</tr>
+		<tr>
+			<td><input type="text" id="year" name="year" style="width: 50px" tabindex=1></td>
+			<td><input type="text" id="month" name="month" style="width: 30px" tabindex=2></td>
+			<td><input type="text" id="day" name="day" style="width: 30px" tabindex=3></td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<br>
+	Song Name:&nbsp;&nbsp;<input type="text" id="songName" name="songName" tabindex=4> <br> <br>
+    <input type="submit" id="submitButton" value="Generate" tabindex=5>
 	
 	<br>
 	<br>

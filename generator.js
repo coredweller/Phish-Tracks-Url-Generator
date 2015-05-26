@@ -15,34 +15,39 @@ $( document ).ready(function() {
 	$( "#submitButton" ).click(function() {
 		$( "#generatedLink" ).text("");
 		var baseShowUrl = "http://www.phishtracks.com/shows/";
-		var showDateText = $( "#showDate" ).val();
+		var year = $( "#year" ).val();
+		var month = $( "#month" ).val();
+		var day = $( "#day" ).val();
 		
-		//Make sure show date is not empty
-		if(!showDateText){
-			$( "#generatedLink" ).text("Show Date is required");
-			return;
+		try
+		{
+			//Make sure show date is not empty
+			if(!year || !month || !day){
+				$( "#generatedLink" ).text("Year, Month, and Day are required.");
+				return;
+			}
+			
+			var date = year + "-" + month + "-" + day;
+			//Make sure show date is a date
+			if(!isDate(date) || isNaN(year) || isNaN(month) || isNaN(day) || parseInt(year) < 1980){
+				$( "#generatedLink" ).text("Please enter a valid show date");
+				return;
+			}
+
+			var finalText = baseShowUrl + date;
+			
+			var songNameText = $( "#songName" ).val();
+			//If song name is filled out, concatenate it at the end
+			if(songNameText){
+				var songName = songNameText.replace(/\s+/g, '-').toLowerCase();
+				finalText += "/" + songName;
+			}
+			
+			$( "#generatedLink" ).text(finalText);
 		}
-		
-		//Make sure show date is a date
-		if(!isDate(showDateText)){
-			$( "#generatedLink" ).text("Please enter a valid show date");
-			return;
+		catch(e){
+			$( "#generatedLink" ).text("An error occurred, please enter valid information and try again.");
 		}
-	
-		//Format the date the way Phish Tracks wants it
-		var date = new Date(showDateText);
-		var showDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate());
-		
-		var finalText = baseShowUrl + showDate;
-		
-		var songNameText = $( "#songName" ).val();
-		//If song name is filled out, concatenate it at the end
-		if(songNameText){
-			var songName = songNameText.replace(/\s+/g, '-').toLowerCase();
-			finalText += "/" + songName;
-		}
-		
-		$( "#generatedLink" ).text(finalText);
 	});
   
 });
