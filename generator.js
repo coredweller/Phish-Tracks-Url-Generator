@@ -3,12 +3,7 @@ $( document ).ready(function() {
 	function isDate(val) {
 		var d = new Date(val);
 		return !isNaN(d.valueOf());
-	}	
-  
-	//TODO:
-	//If there is an error then turn the text red
-	//At the beginning of the function turn the text back to black
-  
+	}	 
   
 	$( "#submitButton" ).click(function() {
 		$( "#generatedLink" ).text("");
@@ -34,7 +29,6 @@ $( document ).ready(function() {
 			var finalText = baseShowUrl + date;
 			
 			var songNameText = $( "#songName" ).val();
-			//If song name is filled out, concatenate it at the end
 			if(songNameText){
 				var songName = songNameText.replace(/\s+/g, '-').toLowerCase();
 				finalText += "/" + songName;
